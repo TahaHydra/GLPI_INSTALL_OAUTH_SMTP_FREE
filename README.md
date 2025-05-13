@@ -91,7 +91,7 @@ server {
 
 #### Fixes Applied:
 
-* Fixed in configuration -> generale -> Change url to HTTPS
+* Fixed in GLPI web PAGE SUPER ADMIN -> Configuration -> Generale -> Change url to HTTPS
 * Forced HTTPS return in `getBaseURL()` in `Toolbox.php`
 * Used `generic` provider instead of `azure` to avoid errors.
 * Enabled auto user creation in `findUser()`.
