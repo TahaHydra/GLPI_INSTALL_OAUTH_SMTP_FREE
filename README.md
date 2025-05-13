@@ -161,4 +161,4 @@ server {
 
 ### 🎓 Credits
 
-Written by ChatGPT in collaboration with Taha Laachari during hands-on setup and debug.
+Written by Taha Laachari during hands-on setup and debug , corrected and formatted by chat GPT FYI
