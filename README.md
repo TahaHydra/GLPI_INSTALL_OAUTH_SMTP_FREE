@@ -35,19 +35,19 @@ php8.1-imap php8.1-apcu php8.1-bz2 php8.1-readline php8.1-fpm
 ```nginx
 server {
     listen 80;
-    server_name support.exco.fr;
+    server_name support.exemple.fr;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 443 ssl http2;
-    server_name support.exco.fr;
+    server_name support.exemple.fr;
 
     root /var/www/html/glpi/public;
     index index.php index.html;
 
-    ssl_certificate     /etc/letsencrypt/live/support.exco.fr/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/support.exco.fr/privkey.pem;
+    ssl_certificate     /etc/letsencrypt/live/support.exemple.fr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/support.exemple.fr/privkey.pem;
 
     access_log /var/log/nginx/glpi_access.log;
     error_log  /var/log/nginx/glpi_error.log;
@@ -106,7 +106,7 @@ server {
 
   * Client ID
   * Client Secret
-  * Redirect URI: `https://support.exco.fr/plugins/singlesignon/front/callback.php/provider/1`
+  * Redirect URI: `https://support.exemple.fr/plugins/singlesignon/front/callback.php/provider/1`
 
 #### Permissions Required:
 
@@ -123,7 +123,7 @@ server {
 * **Port**: `587`
 * **Authentication**: OAuth
 * **OAuth Provider**: Azure
-* **Redirect URL**: `https://support.exco.fr/front/smtp_oauth2_callback.php`
+* **Redirect URL**: `https://support.exemple.fr/front/smtp_oauth2_callback.php`
 * **Permissions Required**: `SMTP.Send`, `offline_access`, `email`, `openid`, `profile`
 
 ---
