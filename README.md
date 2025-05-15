@@ -148,6 +148,57 @@ server {
 * Disable automatic SMTP redirection in cPanel.
 
 ---
+---
+
+### 🕓 9. CLI & Cron: Queued Notifications (GLPI)
+
+GLPI’s notification system uses cron to send queued emails stored in the database. To make sure emails are sent automatically:
+
+#### ✅ Manual Execution (Test)
+
+You can manually trigger all cron tasks including `queuednotification` via:
+
+```bash
+sudo -u www-data php8.1 /var/www/html/glpi/front/cron.php
+```
+
+Check the logs to confirm execution:
+
+```bash
+tail -f /var/www/html/glpi/files/_log/cron.log
+```
+
+You should see lines like:
+
+```text
+Démarrage queuednotification
+```
+
+#### ⚙️ Add Automatic Cron Task
+
+To run the cron script every 5 minutes:
+
+```bash
+sudo crontab -e -u www-data
+```
+
+Then add the following line at the bottom:
+
+```cron
+*/5 * * * * php8.1 /var/www/html/glpi/front/cron.php > /dev/null 2>&1
+```
+
+This ensures notifications and other background tasks are regularly handled by the system.
+
+#### 🔍 Notes
+
+- Make sure the `php8.1-fpm` service is running.
+- The file `/var/www/html/glpi/front/cron.php` must be accessible by the `www-data` user.
+- Logs are saved in: `/var/www/html/glpi/files/_log/cron.log`.
+
+---
+
+
 
 ### ✅ Final Checks
 
